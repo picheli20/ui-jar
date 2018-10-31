@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ui-jar": "node node_modules/ui-jar/dist/bin/cli.js --directory ./src/app/ --includes \\.ts$",
-    "start-ui-jar-example": "npm run ui-jar && ng serve ui-jar"
+    "start-ui-jar-example": "concurrently \"npm run docs:watch\" \"ng serve ui-jar\"",
+    "docs:watch": "npm run ui-jar -- --watch"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +36,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "concurrently": "^4.0.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
