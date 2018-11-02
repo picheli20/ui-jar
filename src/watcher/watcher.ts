@@ -24,10 +24,6 @@ export class FileWatcher {
         let watcher = watch(path.resolve(this.config.directory), { persistent: true });
 
         watcher.on('change', (path: string) => {
-            if(!this.shouldBeIncluded(path)) {
-                return;
-            }
-
             clearTimeout(watchTimer);
             watchTimer = setTimeout(() => this.eventHandler(path), debounceTime);
         });

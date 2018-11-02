@@ -46,10 +46,11 @@ function startFileWatcher(cliArgs: CliArgs) {
     const fileWatcher = new FileWatcher(fileWatcherOptions);
     fileWatcher.start();
     fileWatcher.addListener(FileWatcherEvent.REBUILD, (fileName: string) => {
-        generateSingleFile({
-            directory: cliArgs.directory,
-            includes: cliArgs.includes,
-            excludes: cliArgs.excludes
-        }, fileName);
+        // generateSingleFile({
+        //     directory: cliArgs.directory,
+        //     includes: cliArgs.includes,
+        //     excludes: cliArgs.excludes
+        // }, fileName);
+        generateRequiredFiles(cliArgs);
     });
 }
